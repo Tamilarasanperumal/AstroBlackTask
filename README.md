@@ -18,8 +18,6 @@ A full-stack web application built using React.js for the frontend, Node.js for 
 ### Database
 - MySQL
 
----
-
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
@@ -32,11 +30,13 @@ Ensure the following are installed:
 
 ---
 
-### 1. Clone the Repository
+### Running Command
 
 ```bash
-git clone https://github.com/Tamilarasanperumal/AstroBlackTask.git
+git clone https://github.com/Tamilarasanperumal/AstroBlackTask.git .
 cd your-repo-name.
-I skip the nodemodulus so install npm both frontend and backend.
+I skip the nodemodulus so install npm both frontend(npm i) and backend(npm install @prisma/client@latest prisma@latest).
 Migrate the prisma.schema (npm run migrate)
+frontEnd => npm start
+backend => npm start 
 
