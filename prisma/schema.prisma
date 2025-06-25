@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  name     String? @unique
+  password String? @unique
+  role     String?
+}
+
+model Uom {
+  id               Int                @id @default(autoincrement())
+  uomName          String?
+  code             String?
+  item             Item[]
+  InventoryItems   InventoryItems[]
+  consumptionItems ConsumptionItems[]
+  Stock            Stock[]
+}
+
+model Item {
+  id               Int                @id @default(autoincrement())
+  itemName         String?
+  code             String?
+  Uom              Uom?               @relation(fields: [uomId], references: [id])
+  uomId            Int?
+  thresholdQty     Float?
+  InventoryItems   InventoryItems[]
+  consumptionItems ConsumptionItems[]
+  Stock            Stock[]
+}
+
+model Inventory {
+  id             Int              @id @default(autoincrement())
+  date           DateTime?        @default(now())
+  docId          String?
+  inventoryItems InventoryItems[]
+}
+
+model InventoryItems {
+  id           Int        @id @default(autoincrement())
+  Uom          Uom?       @relation(fields: [uomId], references: [id])
+  uomId        Int?
+  qty          Float?
+  thresholdQty Float?
+  Inventory    Inventory? @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  inventoryId  Int?
+  Item         Item?      @relation(fields: [itemId], references: [id])
+  itemId       Int?
+  stock        Stock[]
+}
+
+model Consumption {
+  id               Int                @id @default(autoincrement())
+  docId            String?
+  docDate          DateTime?          @default(now())
+  consumptionItems ConsumptionItems[]
+}
+
+model ConsumptionItems {
+  id            Int          @id @default(autoincrement())
+  Consumption   Consumption? @relation(fields: [consumptionId], references: [id], onDelete: Cascade)
+  consumptionId Int?
+  Item          Item?        @relation(fields: [itemId], references: [id])
+  itemId        Int?
+  consumedQty   Float?
+  date          DateTime?
+  Uom           Uom?         @relation(fields: [uomId], references: [id])
+  uomId         Int?
+  stock         Stock[]
+}
+
+model Stock {
+  id                 Int               @id @default(autoincrement())
+  Uom                Uom?              @relation(fields: [uomId], references: [id])
+  uomId              Int?
+  qty                Float?
+  InventoryItems     InventoryItems?   @relation(fields: [inventoryItemsId], references: [id], onDelete: Cascade)
+  inventoryItemsId   Int?
+  ConsumptionItems   ConsumptionItems? @relation(fields: [consumptionItemsId], references: [id], onDelete: Cascade)
+  consumptionItemsId Int?
+  Item               Item?             @relation(fields: [itemId], references: [id])
+  itemId             Int?
+}
