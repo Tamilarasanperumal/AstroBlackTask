@@ -36,6 +36,7 @@ Ensure the following are installed:
 git clone https://github.com/Tamilarasanperumal/AstroBlackTask.git .
 cd your-repo-name.
 I skip the nodemodulus so install npm both frontend(npm i) and backend(npm install @prisma/client@latest prisma@latest).
+Change Backend Dot env file.(database username and password)
 Migrate the prisma.schema (npm run migrate)
 frontEnd => npm start
 backend => npm start 
