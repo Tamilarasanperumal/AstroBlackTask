@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 1b76f4295a9b935455d45b9daf7eb5cb304841d2
-# AstroBlackTech
 
 # Project Title
 
@@ -23,22 +18,25 @@ A full-stack web application built using React.js for the frontend, Node.js for 
 ### Database
 - MySQL
 
----
-
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
 
 Ensure the following are installed:
-- Node.js (v16+)
+- Node.js (v18.15.0)
 - MySQL server
 - npm 
 - Git
 
 ---
 
-### 1. Clone the Repository
+### Running Command
 
 ```bash
-git clone https://github.com/Tamilarasanperumal/AstroBlackTech.git
-cd your-repo-name
+git clone https://github.com/Tamilarasanperumal/AstroBlackTask.git .
+cd your-repo-name.
+I skip the nodemodulus so install npm both frontend(npm i) and backend(npm install @prisma/client@latest prisma@latest).
+Migrate the prisma.schema (npm run migrate)
+frontEnd => npm start
+backend => npm start 
+
