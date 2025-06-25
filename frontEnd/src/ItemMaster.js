@@ -4,13 +4,7 @@ import { DropdownInput, TextInput } from "./Inputs";
 import { useAddItemMutation, useDeleteItemMutation, useGetItemByIdQuery, useGetItemQuery, useUpdateItemMutation } from "./redux/itemService";
 import { useGetUomQuery } from "./redux/UomMasterService";
 
-
-
-
-
-
 const ItemMaster = () => {
-
 
     const [id, setId] = useState("");
     const [itemName, setItemName] = useState("");
@@ -168,18 +162,13 @@ const ItemMaster = () => {
                         <div className="flex justify-start items-start border-t-2 border-gray-300 p-2 ">
                             <table className="w-full">
                                 <thead className="flex gap-x-12">
-
-
                                     <th className="text-lg font-semibold w-44"> Name</th>
                                     <th className="text-sm text-gray-500 w-28">Threshold</th>
                                     <th className="text-sm text-gray-500">Edit</th>
-
-
                                 </thead>
                                 <tbody>
 
                                     {
-
                                         allData?.map((item, index) => (
                                             <tr key={index} className="flex gap-x-12 p-2">
 
@@ -187,17 +176,11 @@ const ItemMaster = () => {
                                                 <td className="text-sm text-center text-gray-500 w-28">{item.thresholdQty}</td>
                                                 <td onClick={() => setId(item?.id)} className="text-center hover:cursor-pointer text-sm text-gray-500 bg-yellow-300 p-1 rounded-lg w-12">{"Edit"}</td>
 
-
-
                                             </tr>
                                         ))}
                                 </tbody>
                             </table>
-
-
                         </div>
-
-
 
                     </div>
                 </div>

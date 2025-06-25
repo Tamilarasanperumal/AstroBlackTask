@@ -200,12 +200,7 @@ export default function Consumption() {
                                         ))}
                                 </tbody>
                             </table>
-
-
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

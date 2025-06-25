@@ -19,13 +19,10 @@ const InventoryItems = ({ inventoryItems, setInventoryItems }) => {
     setInventoryItems(val => val.filter((row, index) => index !== parseInt(id)));
   };
 
-
-
   function findThresholdQty(itemId, uomId) {
     const item = itemList.find(item => (parseInt(item.id) === parseInt(itemId) && parseInt(item.uomId) === parseInt(uomId)))
     return item ? item.thresholdQty : 0;
   }
-
 
   function handleInputChange(value, index, field) {
     const newBlend = structuredClone(inventoryItems);
@@ -113,7 +110,6 @@ const InventoryItems = ({ inventoryItems, setInventoryItems }) => {
                   onChange={(e) =>
                     handleInputChange(e.target.value, index, "qty")
                   }
-
                 />
               </td>
 
