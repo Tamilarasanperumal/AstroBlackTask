@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 1b76f4295a9b935455d45b9daf7eb5cb304841d2
-# AstroBlackTech
 
 # Project Title
 
