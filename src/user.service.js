@@ -15,6 +15,7 @@ userrouter.post('/', async (req, res) => {
     }
     try {
         if (login) {
+            console.log("kii")
             let userData = await prisma.user.findUnique({
                 where: {
                     name: userName ? userName : undefined,
